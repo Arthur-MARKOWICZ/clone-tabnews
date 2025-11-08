@@ -12,7 +12,11 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run service:up && next dev",
+    "service:up": "docker compose -f infra/compose.yml up -d",
+    "service:stop": "docker compose -f infra/compose.yml stop",
+    "service:down": "docker compose -f infra/compose.yml down",
+    "service:build": "docker compose -f infra/compose.yml up -d --build",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
